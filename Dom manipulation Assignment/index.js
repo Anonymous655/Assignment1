@@ -18,3 +18,17 @@ items[2].style.backgroundColor = 'green';
 for(i=0;i<items.length;i++){
     items[i].style.fontWeight = 'bold';
 }
+
+// task 3
+const newItem = document.getElementsByClassName("new-item");
+const newItemTag = document.getElementsByTagName('li');
+newItemTag[4].style.backgroundColor = 'red';
+// console.log(newItem);
+
+newItem[0].style.color = 'black';
+newItem[0].style.fontWeight = 'bold';
+newItem[0].style.listStyle = 'none';
+
+
+newItemTag[4].style.paddingLeft = '15px';
+newItemTag[4].style.padding = '15px';
