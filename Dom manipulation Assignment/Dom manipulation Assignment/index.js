@@ -70,12 +70,13 @@ const ulList = document.getElementById('items');
 // newlist[0].style.listStyle = 'none'
 // newlist[0].style.padding = '15px'
 
-
-// task 5
+let filter = document.getElementById('filter');
 let submitBtn = document.getElementById('submit');
 submitBtn.addEventListener('click', addItem);
 ulList.addEventListener('click', removeItem);
 ulList.addEventListener('click', editItem);
+filter.addEventListener('keyup', filterItems)
+
 
 
 function addItem(e){
@@ -86,7 +87,7 @@ function addItem(e){
     li.innerHTML = `<span>${item}</span>` ;
     // li.appendChild(newSpan);
     ulList.appendChild(li)
-    console.log(li);
+    // console.log(li);
     li.className = 'list-group-item';
 
     let dltBtn = document.createElement('button');
@@ -131,6 +132,23 @@ function editItem(e){
         r.remove()
 
     }
+}
+function filterItems(e){
+    let text = e.target.value.toLowerCase();
+    let items = document.getElementsByTagName('li');
+    Array.from(items).forEach(function(item){
+        let itemNames = item.firstChild.textContent
+        // console.log(itemNames)
+        if(itemNames.toLocaleLowerCase().indexOf(text) != -1){
+            item.style.display = 'block'
+        }else{
+            item.style.display = 'none'
+
+        }
+
+
+    })
+
 }
 
 
